@@ -1,5 +1,7 @@
+#!/Library/Frameworks/Python.framework/Versions/3.12/bin/python3
+
 TESTFLIGHT_LINK = ""
-INTERVAL = 60 # in seconds
+INTERVAL = 30 # in seconds
 
 import time
 import requests
@@ -7,7 +9,9 @@ import os
 
 print("Hello!")
 while True:
-    response = requests.get(TESTFLIGHT_LINK)
+    response = requests.get(TESTFLIGHT_LINK, headers={
+        "cache-control": "no-store",
+    })
     if (response.status_code != 200):
         print("Error: " + str(response.status_code))
     if (response.content.find(b"This beta is full") != -1):
