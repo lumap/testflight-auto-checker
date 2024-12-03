@@ -18,7 +18,7 @@ while True:
         os.system("say 'Testflight link is not full.'")
         break
             
-    print("eepy time...\n")
+    print(f"{time.strftime('%H:%M', time.localtime())} eepy time...\n")
     time.sleep(INTERVAL)
 
 print("Goodbye :(")
